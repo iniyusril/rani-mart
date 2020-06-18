@@ -20,7 +20,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama</th>
-                  <th scope="col">Harga</th>
+                                    <th scope="col">Harga</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Action</th>
@@ -28,17 +28,17 @@
                             </thead>
                             <tbody>
                                 @php
-                                    $index = 0;
+                                $index = 0;
                                 @endphp
                                 @foreach($products as $item)
-                                    <tr>
-                                        <td>{{ ++$index }}</td>
-                                        <td>{{ $item->nama_produk }}</td>
-                                        <td>{{ $item->price }}</td>
-                                        <td>{{ $item->stock }}</td>
-                                        <td>{{ $item->category->category_name }}</td>
-                                        <td></td>
-                                    </tr>
+                                <tr>
+                                    <td>{{ ++$index }}</td>
+                                    <td>{{ $item->nama_produk }}</td>
+                                    <td>{{ $item->price }}</td>
+                                    <td>{{ $item->stock }}</td>
+                                    <td>{{ $item->category->category_name }}</td>
+                                    <td></td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
