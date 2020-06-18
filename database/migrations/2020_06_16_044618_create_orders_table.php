@@ -13,11 +13,11 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('orders');
+
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->date('order_date');
-            $table->bigInteger('pelanggan_id')->unsigned();
-            $table->foreign('pelanggan_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

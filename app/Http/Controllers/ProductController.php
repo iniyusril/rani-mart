@@ -35,7 +35,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create($request->all());
+        return redirect()->route('product.index')
+                ->with('success','Product berhasil ditambahkan');
+
     }
 
     /**
@@ -44,8 +47,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -54,9 +58,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('menu.product.edit',compact('product'));
     }
 
     /**
@@ -66,9 +70,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return redirect()->route('product.index')
+                ->with('success','Product berhasil diubah');
     }
 
     /**
@@ -77,8 +83,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('product.index')
+                        ->with('success','Product berhasil dihapus');
     }
 }
