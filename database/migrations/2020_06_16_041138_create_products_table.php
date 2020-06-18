@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('nama_produk');
             $table->double('price');
-            $table->string('merk');
             $table->integer('stock');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');

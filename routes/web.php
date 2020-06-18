@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use phpDocumentor\Reflection\Types\Resource_;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('master.app');
+          return view('master.app');
 });
 
+Route::resource('product', 'ProductController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
