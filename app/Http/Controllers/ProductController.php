@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Http\Request;
+
 class ProductController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('menu.product.index',compact('products'));
+        return view('menu.product.index', compact('products'));
     }
 
     /**
@@ -37,7 +38,7 @@ class ProductController extends Controller
     {
         Product::create($request->all());
         return redirect()->route('product.index')
-                ->with('success','Product berhasil ditambahkan');
+            ->with('success', 'Product berhasil ditambahkan');
 
     }
 
@@ -49,7 +50,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('product.show',compact('product'));
+        return view('product.show', compact('product'));
     }
 
     /**
@@ -60,7 +61,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('menu.product.edit',compact('product'));
+        return view('menu.product.edit', compact('product'));
     }
 
     /**
@@ -74,7 +75,7 @@ class ProductController extends Controller
     {
         $product->update($request->all());
         return redirect()->route('product.index')
-                ->with('success','Product berhasil diubah');
+            ->with('success', 'Product berhasil diubah');
     }
 
     /**
@@ -87,6 +88,6 @@ class ProductController extends Controller
     {
         $product->delete();
         return redirect()->route('product.index')
-                        ->with('success','Product berhasil dihapus');
+            ->with('success', 'Product berhasil dihapus');
     }
 }

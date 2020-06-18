@@ -10,7 +10,6 @@
             <span class="text">Tambah Product</span>
         </a>
     </div>
-    {{ $products }}
     <div class="card-body">
         <div class="table-responsive">
             <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -21,7 +20,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Harga</th>
+                  <th scope="col">Harga</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Action</th>
@@ -31,16 +30,16 @@
                                 @php
                                     $index = 0;
                                 @endphp
-                               @foreach ($products as $item)
-                                   <tr>
-                                       <td>{{ ++$index }}</td>
-                                       <td>{{ $item->nama_produk }}</td>
-                                       <td>{{ $item->price }}</td>
-                                       <td>{{ $item->stock }}</td>
-                                       <td>{{ $item->category->category_name }}</td>
-                                       <td></td>
-                                   </tr>
-                               @endforeach
+                                @foreach($products as $item)
+                                    <tr>
+                                        <td>{{ ++$index }}</td>
+                                        <td>{{ $item->nama_produk }}</td>
+                                        <td>{{ $item->price }}</td>
+                                        <td>{{ $item->stock }}</td>
+                                        <td>{{ $item->category->category_name }}</td>
+                                        <td></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
