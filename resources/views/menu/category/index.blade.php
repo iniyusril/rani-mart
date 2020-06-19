@@ -5,7 +5,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <span class="m-0 font-weight-bold text-primary">Kategori</span>
-        <a href="#" class="btn btn-success btn-icon-split float-right btn-sm">
+        <a href="{{ route('category.create') }}" class="btn btn-success btn-icon-split float-right btn-sm">
             <span class="icon text-white-50">
                 <i class="fas fa-check"></i>
             </span>
@@ -21,8 +21,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Nama_Kategori</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Nama Kategori</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,7 +33,8 @@
                                 <tr>
                                     <td>{{ ++$index }}</td>
                                     <td>{{ $item->category_name }}</td>
-                                    <td></td>
+                                    <td><a href=""><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                                        </a></td>
                                 </tr>
                                 @endforeach
                             </tbody>

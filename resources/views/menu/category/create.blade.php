@@ -2,45 +2,18 @@
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <span class="m-0 font-weight-bold text-primary">Product</span>
-        <a href="#" class="btn btn-success btn-icon-split float-right btn-sm">
-            <span class="icon text-white-50">
-                <i class="fas fa-check"></i>
-            </span>
-            <span class="text">Tambah Product</span>
-        </a>
+        <span class="m-0 font-weight-bold text-primary">Tambah Kategori</span>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
-            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama_Kategori</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                $index = 0;
-                                @endphp
-                                @foreach($categories as $item)
-                                <tr>
-                                    <td>{{ ++$index }}</td>
-                                    <td>{{ $item->category_name }}</td>
-                                    <td></td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
+        <form action="{{ route('category.store') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="categoryName">Nama Kategori</label>
+                <input type="text" class="form-control" id="categoryName" placeholder="Masukan nama kategori"
+                    name="category_name">
             </div>
-        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 </div>
 @endsection

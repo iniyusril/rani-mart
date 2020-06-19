@@ -52,6 +52,16 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Produk</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Order</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Hasil</span></a>
+            </li>
         </ul>
         <!-- End of Sidebar -->
 

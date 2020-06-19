@@ -2,12 +2,12 @@
 @section('content')
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <span class="m-0 font-weight-bold text-primary">Product</span>
+        <span class="m-0 font-weight-bold text-primary">Produk</span>
         <a href="#" class="btn btn-success btn-icon-split float-right btn-sm">
             <span class="icon text-white-50">
                 <i class="fas fa-check"></i>
             </span>
-            <span class="text">Tambah Product</span>
+            <span class="text">Tambah Produk</span>
         </a>
     </div>
     <div class="card-body">
@@ -23,7 +23,7 @@
                                     <th scope="col">Harga</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Kategori</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
