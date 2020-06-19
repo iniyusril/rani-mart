@@ -3,9 +3,9 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <span class="m-0 font-weight-bold text-primary">Produk</span>
-        <a href="{{ route('product.create') }}" class="btn btn-success btn-icon-split float-right btn-sm">
+        <a href="{{ route('product.create') }}" class="btn btn-primary btn-icon-split float-right btn-sm">
             <span class="icon text-white-50">
-                <i class="fas fa-check"></i>
+                <i class="fas fa-plus"></i>
             </span>
             <span class="text">Tambah Produk</span>
         </a>
