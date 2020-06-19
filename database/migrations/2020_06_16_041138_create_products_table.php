@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::dropIfExists('products');
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_produk');
+            $table->string('product_name');
             $table->double('price');
             $table->integer('stock');
             $table->bigInteger('category_id')->unsigned();

@@ -32,15 +32,13 @@
                                     <td>{{ ++$index }}</td>
                                     <td>{{ $item->category_name }}</td>
                                     <td>
-                                        <form action="{{ route('category.destroy',$item->id) }}" method="POST">
-
-                                            <a href="{{ route('category.edit',$item->id ) }}" class="mr-3">
-                                                <i class="fa fa-pencil-square-o text-warning" aria-hidden="true"></i>
-                                            </a>
-                                            @csrf
-                                            @method('DELETE')
+                                        <a href="{{ route('category.edit',$item->id ) }}" class="mr-3">
+                                            <i class="fa fa-pencil-square-o text-warning" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="{{ route('category.del',$item->id ) }}" class="mr-3 confirmation">
                                             <i class="fa fa-trash text-danger" aria-hidden="true"></i>
-                                        </form>
+                                        </a>
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -53,4 +51,11 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+    $('.confirmation').on('click', function () {
+        return confirm('Are you sure?');
+    });
+</script>
 @endsection

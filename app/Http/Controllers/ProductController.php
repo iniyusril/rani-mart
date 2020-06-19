@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('menu.product.create');
+        $categories = Category::all();
+        return view('menu.product.create', compact('categories'));
     }
 
     /**
@@ -36,6 +38,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         Product::create($request->all());
         return redirect()->route('product.index')
             ->with('success', 'Product berhasil ditambahkan');
@@ -61,7 +64,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('menu.product.edit', compact('product'));
+        $categories = Category::all();
+        return view('menu.product.edit', compact('product', 'categories'));
     }
 
     /**
