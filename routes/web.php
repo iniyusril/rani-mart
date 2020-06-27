@@ -11,6 +11,7 @@ Route::resource('category', 'CategoryController');
 Route::get('category/{category}', 'CategoryController@destroy')->name('category.del');
 Route::get('product/{product}', 'ProductController@destroy')->name('product.del');
 Route::get('order', 'OrderController@index')->name('order.index');
+Route::get('result', 'ResultController@index')->name('result.index');
 
 Auth::routes();
 
