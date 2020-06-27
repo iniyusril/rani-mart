@@ -59,11 +59,11 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Order</span></a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('result.index') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Hasil</span></a>
-            </li> --}}
+            </li>
         </ul>
         <!-- End of Sidebar -->
 
