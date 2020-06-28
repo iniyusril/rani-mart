@@ -48,7 +48,25 @@
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-sm btn-primary" @click="bayar()">Bayar</button>
+                <div class="row ml-2" v-if="carts.length != 0">
+                    <div class="form-group row">
+                        <label for="uang_pembayaran" class="col-sm-5 col-form-label">Pembayaran</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="uang_pembayaran" placeholder="Uang Pembayaran"
+                                @input="fun_kembalian($event.target.value)" v-model="uang_pembayaran">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row ml-2" v-if="uang_pembayaran != null">
+                    <div class="form-group row">
+                        <label for="kembalian" class="col-sm-5 col-form-label">Kembalian</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="kembalian" v-model="kembalian" disabled>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-primary ml-2" @click="bayar()">Bayar</button>
             </div>
         </div>
     </div>
@@ -58,6 +76,8 @@
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script>
     let app = new Vue({
         el : '#app',
@@ -65,7 +85,9 @@
             keywords:'',
             results:[],
             carts:[],
-            qty:1
+            qty:1,
+            uang_pembayaran:null,
+            kembalian:0
         },
         methods: {
 
@@ -111,18 +133,45 @@
         },
         bayar(){
             console.log(this.carts)
-            axios({
-            method: 'post',
-            url: '/api/order',
-            data: this.carts
-            }).then(function (response) {
-                // your action after success
-                console.log(response);
-            })
-            .catch(function (error) {
-            // your action on error success
-                console.log(error);
-            });
+            let kembalian = this.kembalian
+            if(this.kembalian < 0 || this.uang_pembayaran <= 0 || this.uang_pembayaran == null){
+                swal({
+                    icon: "error",
+                    text: "Jumlah uang kurang !",
+                });
+            }else{
+                axios({
+                method: 'post',
+                url: '/api/order',
+                data: this.carts
+                }).then(function (response) {
+                    // your action after success
+                    console.log(response.data);
+                    swal({
+                        icon: "success",
+                        text: "Kembalian : " + kembalian,
+                    }).then(function() {
+                        window.location = "/admin/order";
+                    });
+                })
+                .catch(function (error) {
+                // your action on error success
+                    swal({
+                        icon: "error",
+                        text: "Transaksi gagal !",
+                    });
+                });
+            }
+
+        },
+        totalPembayaran(){
+            let total =  this.carts.reduce((acc,curr)=> acc + curr.total,0);
+            return total
+        },
+        fun_kembalian(data){
+            console.log(data)
+            this.kembalian = this.uang_pembayaran - this.totalPembayaran()
+
         }
         },
         watch: {
