@@ -13,7 +13,9 @@
                         name="product_name" @input="search($event)" v-model="keywords">
                 </div>
                 <div v-for="result in results" class="alert alert-primary" role="alert" @click="tambahCart(result)">
-                    <span>@{{ result.product_name }}</span>
+                    <span>@{{ result.product_name }}</span> <span class="float-right">
+                        <i class="fa fa-arrow-right "></i>
+                    </span>
                 </div>
 
 
@@ -60,13 +62,14 @@
                 </div>
                 <div class="row ml-2" v-if="uang_pembayaran != null">
                     <div class="form-group row">
-                        <label for="kembalian" class="col-sm-5 col-form-label">Kembalian</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="kembalian" v-model="kembalian" disabled>
+                        <label for="kembalian" class="col-auto col-form-label">Kembalian</label>
+                        <div class="col-auto">
+                            <h5 style="color: green"> Rp. @{{ kembalian }} </h5>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-sm btn-primary ml-2" @click="bayar()">Bayar</button>
+                <button class="btn btn-sm btn-primary ml-2 float-right" @click="bayar()"
+                    v-if="carts.length != 0">Bayar</button>
             </div>
         </div>
     </div>

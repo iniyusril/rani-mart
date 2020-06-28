@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('master.app');
+    return redirect('/login');
 });
 
 Auth::routes();
