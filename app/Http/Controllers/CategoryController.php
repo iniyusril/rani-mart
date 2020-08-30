@@ -17,6 +17,11 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('menu.category.index', compact('categories'));
     }
+    public function getDataAll()
+    {
+        $categories = Category::all();
+        return response()->json($categories, 200);
+    }
 
     /**
      * Show the form for creating a new resource.

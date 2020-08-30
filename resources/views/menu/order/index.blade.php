@@ -64,7 +64,7 @@
                     <div class="form-group row">
                         <label for="kembalian" class="col-auto col-form-label">Kembalian</label>
                         <div class="col-auto">
-                            <h5 style="color: green"> Rp. @{{ kembalian }} </h5>
+                            <h5 style="color: green"> Rp. @{{ kembalian.toLocaleString() }} </h5>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,11 @@ class ProductController extends Controller
         $products = Product::all();
         return view('menu.product.index', compact('products'));
     }
-
+    public function getAllData()
+    {
+        $products = Product::paginate(2);
+        return response()->json($products, 200);
+    }
     /**
      * Show the form for creating a new resource.
      *

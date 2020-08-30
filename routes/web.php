@@ -17,4 +17,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('order', 'OrderController@index')->name('order.index');
     Route::get('result', 'ResultController@index')->name('result.index');
 });
+Route::get('apriori', 'AprioriController@apriori');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
