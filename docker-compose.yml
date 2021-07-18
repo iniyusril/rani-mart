@@ -1,0 +1,12 @@
+version: '2.4'
+services:
+  db:
+    image: datajoint/mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      # - DATAJOINT_DATABASE_CONFIG_MONITOR=FALSE
+    volumes:
+      - ./data:/var/lib/mysql
+      # - ./my.cnf:/etc/mysql/my.cnf
